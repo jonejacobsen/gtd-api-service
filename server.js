@@ -48,6 +48,21 @@ const upload = multer({
   storage: multer.memoryStorage()
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    service: 'GTD Productivity System API',
+    version: '1.0.0',
+    status: 'running',
+    endpoints: {
+      health: '/health',
+      search: 'POST /api/search',
+      documents: '/api/documents',
+      stats: '/api/stats'
+    }
+  });
+});
+
 // Health check
 app.get('/health', async (req, res) => {
   try {

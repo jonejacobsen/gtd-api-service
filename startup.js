@@ -8,10 +8,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 async function runMigrationsIfNeeded() {
-  console.log('🚀 GTD API Service - Startup Check\n');
+  console.log('🚀 GTD API Service - Startup Check');
+  console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🔌 Port: ${process.env.PORT || 3001}\n`);
   
   try {
     // Test database connection
+    console.log('🔗 Connecting to database...');
+    console.log(`   Host: ${process.env.POSTGRES_HOST || 'postgres.railway.internal'}`);
+    console.log(`   Database: ${process.env.POSTGRES_DATABASE || 'railway'}`);
+    console.log(`   User: ${process.env.POSTGRES_USER || 'postgres'}`);
+    console.log(`   Password: ${process.env.PGPASSWORD ? '***' : 'NOT SET'}\n`);
+    
     await gtdDB.connect();
     console.log('✅ Database connected successfully\n');
     
