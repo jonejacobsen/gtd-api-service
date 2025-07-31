@@ -1,0 +1,41 @@
+{
+  "name": "gtd-api-service",
+  "version": "1.0.0",
+  "description": "GTD Productivity System API - Search, Document Management, and Evernote Migration",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test-setup.js",
+    "migrate": "node scripts/run-migrations.js",
+    "health": "curl -f http://localhost:${PORT:-3001}/health || exit 1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.52.7",
+    "pg": "^8.12.0",
+    "sanitize-html": "^2.13.0",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "keywords": [
+    "gtd",
+    "productivity",
+    "evernote",
+    "postgresql",
+    "pgvector",
+    "search",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT"
+}

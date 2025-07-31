@@ -1,0 +1,43 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "DOCKERFILE",
+    "dockerfilePath": "Dockerfile"
+  },
+  "deploy": {
+    "numReplicas": 1,
+    "healthcheckPath": "/health",
+    "healthcheckTimeout": 3,
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 3
+  },
+  "envVars": {
+    "NODE_ENV": {
+      "default": "production"
+    },
+    "GTD_API_PORT": {
+      "default": "${{PORT}}"
+    },
+    "CORS_ORIGIN": {
+      "default": "*",
+      "description": "CORS allowed origins (use specific domains in production)"
+    },
+    "MAX_FILE_SIZE": {
+      "default": "104857600",
+      "description": "Maximum file size for uploads in bytes (default 100MB)"
+    },
+    "EMBEDDING_BATCH_SIZE": {
+      "default": "10",
+      "description": "Number of documents to process for embeddings at once"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string (automatically set if using Railway PostgreSQL)"
+    },
+    "RAILWAY_POSTGRESQL_URL": {
+      "description": "Alternative PostgreSQL connection string"
+    },
+    "OPENAI_API_KEY": {
+      "description": "OpenAI API key for embeddings (optional - disables vector search if not set)"
+    }
+  }
+}

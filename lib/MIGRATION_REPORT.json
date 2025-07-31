@@ -1,0 +1,133 @@
+[
+  {
+    "filePath": "/workspaces/enterprise-ai-automation-n8n/lib/claude-code-deploy.js",
+    "changes": [
+      {
+        "pattern": "/await\\s+getSecret\\(([^)]+)\\)/g",
+        "matches": 3,
+        "replacement": "process.env[$1] // Managed by deployment-control service"
+      },
+      {
+        "pattern": "Added import",
+        "matches": 1,
+        "replacement": "import { deploymentClient } from './lib/deployment-client.js';"
+      }
+    ],
+    "modified": true
+  },
+  {
+    "filePath": "/workspaces/enterprise-ai-automation-n8n/lib/claude-code-env-loader.js",
+    "changes": [
+      {
+        "pattern": "/await\\s+envLoader\\.loadEnvironment\\(\\)/g",
+        "matches": 1,
+        "replacement": "// Environment loaded automatically by deployment-control service"
+      },
+      {
+        "pattern": "/envLoader\\.loadEnvironment\\(\\)/g",
+        "matches": 2,
+        "replacement": "// Environment loaded automatically by deployment-control service"
+      },
+      {
+        "pattern": "Added import",
+        "matches": 1,
+        "replacement": "import { deploymentClient } from './lib/deployment-client.js';"
+      }
+    ],
+    "modified": true
+  },
+  {
+    "filePath": "/workspaces/enterprise-ai-automation-n8n/lib/claude-code-secrets.js",
+    "changes": [
+      {
+        "pattern": "/import\\s*{\\s*OnePasswordManager\\s*}\\s*from\\s*['\"][^'\"]+onepassword-manager[^'\"]*['\"]/g",
+        "matches": 1,
+        "replacement": "import { deploymentClient } from './lib/deployment-client.js'"
+      },
+      {
+        "pattern": "/new\\s+OnePasswordManager\\(\\)/g",
+        "matches": 1,
+        "replacement": "deploymentClient"
+      },
+      {
+        "pattern": "/opManager\\.getSecret\\(([^)]+)\\)/g",
+        "matches": 1,
+        "replacement": "process.env[$1] // Managed by deployment-control service"
+      },
+      {
+        "pattern": "/process\\.env\\.OP_SERVICE_ACCOUNT_TOKEN/g",
+        "matches": 1,
+        "replacement": "process.env.DEPLOYMENT_API_KEY"
+      }
+    ],
+    "modified": true
+  },
+  {
+    "filePath": "/workspaces/enterprise-ai-automation-n8n/lib/env-loader.js",
+    "changes": [
+      {
+        "pattern": "/import\\s*{\\s*OnePasswordManager\\s*}\\s*from\\s*['\"][^'\"]+onepassword-manager[^'\"]*['\"]/g",
+        "matches": 1,
+        "replacement": "import { deploymentClient } from './lib/deployment-client.js'"
+      },
+      {
+        "pattern": "/new\\s+OnePasswordManager\\(\\)/g",
+        "matches": 1,
+        "replacement": "deploymentClient"
+      },
+      {
+        "pattern": "/process\\.env\\.OP_SERVICE_ACCOUNT_TOKEN/g",
+        "matches": 1,
+        "replacement": "process.env.DEPLOYMENT_API_KEY"
+      },
+      {
+        "pattern": "/process\\.env\\.OP_CONNECT_HOST/g",
+        "matches": 1,
+        "replacement": "process.env.DEPLOYMENT_SERVICE_URL"
+      }
+    ],
+    "modified": true
+  },
+  {
+    "filePath": "/workspaces/enterprise-ai-automation-n8n/lib/railway-api-client.js",
+    "changes": [
+      {
+        "pattern": "/import\\s*{\\s*OnePasswordManager\\s*}\\s*from\\s*['\"][^'\"]+onepassword-manager[^'\"]*['\"]/g",
+        "matches": 1,
+        "replacement": "import { deploymentClient } from './lib/deployment-client.js'"
+      },
+      {
+        "pattern": "/import\\s*{\\s*envLoader\\s*}\\s*from\\s*['\"][^'\"]+claude-code-env-loader[^'\"]*['\"]/g",
+        "matches": 1,
+        "replacement": "// Environment now loaded via deployment-control service"
+      },
+      {
+        "pattern": "/new\\s+OnePasswordManager\\(\\)/g",
+        "matches": 1,
+        "replacement": "deploymentClient"
+      },
+      {
+        "pattern": "/opManager\\.getSecret\\(([^)]+)\\)/g",
+        "matches": 1,
+        "replacement": "process.env[$1] // Managed by deployment-control service"
+      }
+    ],
+    "modified": true
+  },
+  {
+    "filePath": "/workspaces/enterprise-ai-automation-n8n/lib/token-rotation-manager.js",
+    "changes": [
+      {
+        "pattern": "/import\\s*{\\s*OnePasswordManager\\s*}\\s*from\\s*['\"][^'\"]+onepassword-manager[^'\"]*['\"]/g",
+        "matches": 1,
+        "replacement": "import { deploymentClient } from './lib/deployment-client.js'"
+      },
+      {
+        "pattern": "/new\\s+OnePasswordManager\\(\\)/g",
+        "matches": 1,
+        "replacement": "deploymentClient"
+      }
+    ],
+    "modified": true
+  }
+]
