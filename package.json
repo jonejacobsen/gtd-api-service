@@ -5,7 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "node startup.js",
+    "start:server": "node server.js",
     "dev": "node --watch server.js",
     "test": "node test-setup.js",
     "migrate": "node scripts/run-migrations.js",

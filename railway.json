@@ -15,8 +15,27 @@
     "NODE_ENV": {
       "default": "production"
     },
+    "PORT": {
+      "description": "Port is automatically set by Railway"
+    },
     "GTD_API_PORT": {
       "default": "${{PORT}}"
+    },
+    "POSTGRES_HOST": {
+      "default": "postgres.railway.internal",
+      "description": "PostgreSQL host (internal Railway network)"
+    },
+    "POSTGRES_PORT": {
+      "default": "5432"
+    },
+    "POSTGRES_DATABASE": {
+      "default": "railway"
+    },
+    "POSTGRES_USER": {
+      "default": "postgres"
+    },
+    "PGPASSWORD": {
+      "description": "PostgreSQL password (reference from Postgres service)"
     },
     "CORS_ORIGIN": {
       "default": "*",
@@ -31,13 +50,19 @@
       "description": "Number of documents to process for embeddings at once"
     },
     "DATABASE_URL": {
-      "description": "PostgreSQL connection string (automatically set if using Railway PostgreSQL)"
+      "description": "PostgreSQL connection string (optional - will be built from components)"
     },
     "RAILWAY_POSTGRESQL_URL": {
-      "description": "Alternative PostgreSQL connection string"
+      "description": "Alternative PostgreSQL connection string (optional)"
     },
     "OPENAI_API_KEY": {
       "description": "OpenAI API key for embeddings (optional - disables vector search if not set)"
+    },
+    "API_KEY_REQUIRED": {
+      "default": "false"
+    },
+    "LOG_LEVEL": {
+      "default": "info"
     }
   }
 }
